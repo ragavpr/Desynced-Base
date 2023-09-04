@@ -1,0 +1,28 @@
+<svg width="15cm" height="15cm" version="1.1" viewBox="0 0 150 150" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs>
+  <linearGradient id="linearGradient7004" x1="16.34" x2="16.34" y1="4.9795" y2="11.831" gradientUnits="userSpaceOnUse">
+   <stop stop-color="#ff0095" offset=".5"/>
+   <stop stop-color="#ff0095" stop-opacity=".5" offset="1"/>
+  </linearGradient>
+  <radialGradient id="radialGradient7136" cx="24.997" cy="17.705" r="3.591" gradientTransform="matrix(1 0 0 .9645 0 .62845)" gradientUnits="userSpaceOnUse">
+   <stop stop-color="#00ff2b" offset=".5"/>
+   <stop stop-color="#00ff2b" stop-opacity=".5" offset="1"/>
+  </radialGradient>
+  <radialGradient id="radialGradient7144" cx="14.239" cy="24.548" r="5.4999" gradientTransform="matrix(1 0 0 1.0769 0 -1.888)" gradientUnits="userSpaceOnUse">
+   <stop stop-color="#0af" offset=".5"/>
+   <stop stop-color="#0af" stop-opacity=".5" offset="1"/>
+  </radialGradient>
+  <radialGradient id="radialGradient7788" cx="16.933" cy="16.933" r="16.933" gradientTransform="matrix(.96774 0 0 .96774 -39.227 -23.601)" gradientUnits="userSpaceOnUse">
+   <stop stop-color="#808080" stop-opacity=".3" offset="0"/>
+   <stop stop-color="#808080" stop-opacity=".65" offset="1"/>
+  </radialGradient>
+ </defs>
+ <g stroke-linejoin="round">
+  <circle transform="rotate(207.49)" cx="-22.84" cy="-7.2141" r="15.875" fill="url(#radialGradient7788)" stroke="#808080" stroke-dasharray="4.23333979,2.11666989,1.05833495,2.11666989" stroke-linecap="round" stroke-width="2.1167"/>
+  <g stroke-opacity=".5" stroke-width=".52917">
+   <text x="7.4764652" y="32.568882" fill="url(#radialGradient7144)" font-family="'Felix Titling'" font-size="22.501px" stroke="#00aaff" stroke-linecap="round" style="line-height:1.25" xml:space="preserve"><tspan x="7.4764652" y="32.568882" fill="url(#radialGradient7144)" font-family="'Monospac821 BT'" stroke="#00aaff" stroke-linecap="round" stroke-linejoin="round" stroke-opacity=".5" stroke-width=".52917">+</tspan></text>
+   <text x="19.934954" y="26.191751" fill="url(#radialGradient7136)" font-family="monospace" font-size="16.842px" stroke="#00ff2b" style="line-height:1.25" xml:space="preserve"><tspan x="19.934954" y="26.191751" fill="url(#radialGradient7136)" font-family="'Monospac821 BT'" stroke="#00ff2b" stroke-linejoin="round" stroke-opacity=".5" stroke-width=".52917">*</tspan></text>
+   <text x="6.5916467" y="26.641987" fill="url(#linearGradient7004)" font-family="'Felix Titling'" font-size="32.271px" stroke="#ff0095" style="line-height:1.25;paint-order:stroke fill markers" xml:space="preserve"><tspan x="6.5916467" y="26.641987" fill="url(#linearGradient7004)" font-family="'Monospac821 BT'" stroke="#ff0095" stroke-linejoin="round" stroke-opacity=".5" stroke-width=".52917" style="paint-order:stroke fill markers">^</tspan></text>
+  </g>
+ </g>
+</svg>
