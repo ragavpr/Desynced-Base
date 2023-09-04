@@ -18,6 +18,7 @@
 		"@playwright/test": "^1.37.1",
 		"@sveltejs/adapter-auto": "^2.1.0",
 		"@sveltejs/kit": "^1.24.0",
+		"@types/lua-json": "^1.0.1",
 		"@typescript-eslint/eslint-plugin": "^6.5.0",
 		"@typescript-eslint/parser": "^6.5.0",
 		"eslint": "^8.48.0",
@@ -35,5 +36,8 @@
 		"vite": "^4.4.9",
 		"vitest": "^0.34.3"
 	},
-	"type": "module"
+	"type": "module",
+	"dependencies": {
+		"lua-json": "^1.0.1"
+	}
 }
