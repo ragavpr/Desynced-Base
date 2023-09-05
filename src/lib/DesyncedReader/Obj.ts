@@ -11,12 +11,12 @@ export class Obj {
 
   src_obj: src_Obj
 
-  items!: {
-    item: Obj
+  ingredients!: {
+    obj: Item | Component
     count: number
   }[]
-  producers!: {
-    component: Obj
+  produced_by!: {
+    component: Component
     time: number //ticks <- (seconds * 5)
   }[]
 
@@ -60,10 +60,10 @@ export class Obj {
       name: this.name,
       texture: this.texture,
       items: Object.fromEntries(
-        this.items.map(req => [req.item.id, req.count])
+        this.ingredients.map(req => [req.obj.id, req.count])
       ),
       producers: Object.fromEntries(
-        this.producers.map(producer => [producer.component.id, producer.time])
+        this.produced_by.map(producer => [producer.component.id, producer.time])
       )
     }
   }
@@ -71,10 +71,10 @@ export class Obj {
   calcTotalTime(useMinimum = false) {
     if(!this.cumulative_time) {
       let time = 0
-      this.items.forEach(obj => {
-        time += obj.item.calcTotalTime() * obj.count
+      this.ingredients.forEach(obj => {
+        time += obj.obj.calcTotalTime() * obj.count
       })
-      time += this.producers.reduce((acc, curr) => {
+      time += this.produced_by.reduce((acc, curr) => {
         return useMinimum ? Math.min(acc, curr.time) : Math.max(acc, curr.time)
       }, useMinimum ? Infinity : -Infinity)
       this.cumulative_time = time

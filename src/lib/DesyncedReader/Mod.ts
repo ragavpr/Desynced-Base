@@ -53,26 +53,26 @@ export default class Mod {
     })
 
     src_items.forEach(item => {
-      this.obj_list[item.id].items = Object.entries(
+      this.obj_list[item.id].ingredients = Object.entries(
         item.production_recipe?.items ?? {}
-      ).map(i => {return {item: this.obj_list[i[0]], count: i[1]}})
-      this.obj_list[item.id].producers = Object.entries(
+      ).map(i => {return {obj: this.obj_list[i[0]], count: i[1]}})
+      this.obj_list[item.id].produced_by = Object.entries(
         {...item.mining_recipe, ...item.production_recipe?.components}
       ).map(i => {return {component: this.obj_list[i[0]], time: i[1]}})
     })
 
     src_components.forEach(component => {
-      this.obj_list[component.id].items = Object.entries(
+      this.obj_list[component.id].ingredients = Object.entries(
         component.production_recipe?.items ?? {}
-      ).map(i => {return {item: this.obj_list[i[0]], count: i[1]}})
-      this.obj_list[component.id].producers = Object.entries(
+      ).map(i => {return {obj: this.obj_list[i[0]], count: i[1]}})
+      this.obj_list[component.id].produced_by = Object.entries(
         component.production_recipe?.components ?? {}
       ).map(i => {return {component: this.obj_list[i[0]], time: i[1]}})
     })
 
     src_components.forEach(component => {
       if(component.extracts)
-      this.obj_list[component.extracts].producers.push(
+      this.obj_list[component.extracts].produced_by.push(
           {
             component: this.obj_list[component.id],
             time: component.extraction_time
@@ -87,17 +87,17 @@ export default class Mod {
     })
 
     obj_list_values.forEach(obj => {
-      obj.items.forEach(item => {
-        item.item.used_in[obj.id] = {
+      obj.ingredients.forEach(ingredient => {
+        ingredient.obj.used_in[obj.id] = {
           obj,
-          count: item.count,
+          count: ingredient.count,
           time_contribution: {
-            contrib: item.item.cumulative_time! * item.count,
+            contrib: ingredient.obj.cumulative_time! * ingredient.count,
             total: obj.cumulative_time!
           }
         }
       })
-      obj.producers.forEach(producer => {
+      obj.produced_by.forEach(producer => {
         producer.component.produces[obj.id] = {
           obj,
           time: producer.time,
