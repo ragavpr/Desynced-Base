@@ -9,4 +9,18 @@
 	<body data-sveltekit-preload-data="hover">
 		<div style="display: contents">%sveltekit.body%</div>
 	</body>
+	<style>
+		:root[data-theme=dark] {
+			--fg: #fff;
+			--bg: #000;
+		}
+		:root {
+			--fg: #000;
+			--bg: #fff;
+		}
+		body {
+			font-family:Arial, Helvetica, sans-serif;
+			margin: 0;
+		}
+	</style>
 </html>
