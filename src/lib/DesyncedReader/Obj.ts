@@ -2,9 +2,9 @@ import type { src_Item, src_Component } from "./ReadFromLua"
 
 export type src_Obj = src_Item | src_Component
 
-export class Obj {
+export abstract class Obj {
   id: string
-  type: 'Item' | 'Component'
+  abstract type: string
   name: string
   desc: string
   texture: string
@@ -12,11 +12,11 @@ export class Obj {
   src_obj: src_Obj
 
   ingredients!: {
-    obj: Item | Component
+    obj: Obj
     count: number
   }[]
   produced_by!: {
-    component: Component
+    component: Obj
     time: number //ticks <- (seconds * 5)
   }[]
 
@@ -40,9 +40,8 @@ export class Obj {
     }
   }>
 
-  constructor(obj: src_Obj, type: 'Item' | 'Component') {
+  constructor(obj: src_Obj) {
     this.id = obj.id
-    this.type = type
 
     this.name = obj.name
     this.desc = obj.desc
@@ -86,24 +85,26 @@ export class Obj {
 
 export class Item extends Obj {
   stack_size?: number
-  slot_type?: string
+  slot_type: string
+  type = 'Item' as const
 
   constructor(item: src_Item) {
-    super(item, 'Item')
+    super(item)
 
     this.stack_size = item.stack_size
-    this.slot_type = item.slot_type
+    this.slot_type = item.slot_type ?? ''
   }
 }
 
 export class Component extends Obj {
-  attachment_size?: string
-  race?: string
+  attachment_size: string
+  race: string
+  type = 'Component' as const
 
   constructor(component: src_Component) {
-    super(component, 'Component')
+    super(component)
 
-    this.attachment_size = component.attachment_size
-    this.race = component.race
+    this.attachment_size = component.attachment_size ?? ''
+    this.race = component.race ?? ''
   }
 }
